@@ -7,7 +7,8 @@ from django.utils import timezone
 
 def main(request):
     Contests = Contest.objects.all()
-    return render(request, 'main.html', {'Contests': Contests})
+    Parties = Party.objects.all()
+    return render(request, 'main.html', {'Contests': Contests, 'Parties': Parties})
 
 def profiles(request):
     CustomUsers = CustomUser.objects.all()
@@ -17,6 +18,10 @@ def profiles(request):
 def contest(request):
     Contests = Contest.objects.all()
     return render(request, 'contest.html', {'Contests': Contests})
+
+def party(request):
+    Parties = Party.objects.all()
+    return render(request, 'party.html', {'Parties': Parties})
 
 def newcontest(request):
     return render(request, 'newcontest.html')
@@ -31,7 +36,7 @@ def createcontest(request):
     return redirect('contest')
 
 def newparty(request):
-    return render(request, 'newcontest.html')
+    return render(request, 'newparty.html')
 
 def createparty(request):
     new_party = Party()
@@ -40,4 +45,7 @@ def createparty(request):
     new_party.pub_date = timezone.now()
     new_party.image = request.FILES['image']
     new_party.save()
-    return redirect('contest')
+    return redirect('party')
+
+def notice(request):
+    return render(request, 'notice.html')

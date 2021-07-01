@@ -15,7 +15,9 @@
         </div>
         <div class="box">
             <div class="title">
-                공지사항
+                <a href="{% url 'notice' %}">
+                    공지사항
+                </a>
             </div>
             <div class="content">
                 어떻게 사용하는가 !
@@ -61,42 +63,36 @@
     <div class="container"></div>
     <div id="carouselExampleControls2" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
+
+
           <div class="carousel-item active">
             <div class="box3">
                 <div class="card">
-                    <img src="{% static 'music.jpg' %}" class="card-img-top" alt="...">
+                    <img src="{% static 'group.jpg' %}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title title">음악</h5>
-                            <p class="card-text">음반 기획.제작자들의 모임</p>
-                            <button type="button" class="btn btn-outline-primary"><a href="puppy.html">보기</a></button>
+                            <h5 class="card-title title">리더가 되어주세요 !</h5>
+                            <p class="card-text">원하는 분야의 그룹을 만들어 활동하세요</p>
+                            <a href="{% url 'party' %}"><button type="button" class="btn btn-outline-primary" style="width:100%; ">그룹 만들기</button></a>
                         </div>
                 </div>
             </div>
           </div>
+
+          {% for p in Parties %}
           <div class="carousel-item">
             <div class="box3">
                 <div class="card">
-                    <img src="{% static 'coding.png' %}" class="card-img-top" alt="...">
+                    <img src="{{p.image.url}}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title title">코딩</h5>
-                            <p class="card-text contnet">순수한 코딩 개발자들의 모임</p>
-                            <button type="button" class="btn btn-outline-primary"><a href="pp1.html">보기</a></button>
+                            <h5 class="card-title title">{{p.title}}</h5>
+                            <p class="card-text contnet">{{p.contents}}</p>
+                            <a href="{% url 'party' %}"><button type="button" class="btn btn-outline-primary"  style="width:100%; ">보기</button></a>
                         </div>
                 </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="box3">
-                <div class="card">
-                    <img src="guitar.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title title">rkeqirjfdais</h5>
-                            <p class="card-text contnet">기타 동아리원 모집</p>
-                            <button type="button" class="btn btn-outline-primary"><a href="pp1.html">보기</a></button>
-                        </div>
-                </div>
-            </div>
-          </div>
+          {% endfor %}
+
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true""></span>

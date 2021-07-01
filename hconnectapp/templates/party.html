@@ -19,11 +19,11 @@
       
         </style>
     </head>
-    <h3>행사 둘러보기</h3>
-    <h3><button type="button" class="btn btn-outline-primary"><a href="{% url 'newcontest' %}" style="color: rgb(44, 44, 240)"> 글작성하기</a></button></h3>
+    <h3>모임 둘러보기</h3>
+    <h3><button type="button" class="btn btn-outline-primary"><a href="{% url 'newparty' %}" style="color: rgb(44, 44, 240)"> 그룹 만들기</a></button></h3>
     <br>
     <br>
-        {% for c in Contests %}
+        {% for c in Parties %}
         <div class="container">
             <div class="card text-center">
                 <div class="card-header">
@@ -32,7 +32,7 @@
                 <div class="card-body">
                     <img src="{{c.image.url}}" alt="" width="70%">
                     <p class="card-text">{{c.contents}}</p>
-                    <h3><button type="button" class="btn btn-outline-primary">사이트 바로가기</button></h3>
+                    <h3><button type="button" class="btn btn-outline-primary">그룹 참가하기</button></h3>
                 </div>
                 <div class="card-footer text-muted">
                 {{c.pub_date}}

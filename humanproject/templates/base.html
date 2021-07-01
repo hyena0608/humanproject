@@ -43,6 +43,9 @@
             
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="width:50%">
                 <div class="offcanvas-header">
+                    {% if user.is_authenticated %}
+                        <h5 style="color:black">안녕,<br>{{user.nickname}}</h5>
+                    {% endif %}
                     <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
@@ -57,7 +60,7 @@
                             <li><a class="dropdown-item" href="#">공지사항</a></li>
                             <li><a class="dropdown-item" href="{%url 'profiles'%}">이웃 프로필 보기</a></li>
                             <li><a class="dropdown-item" href="{% url 'contest' %}">진행 행사</a></li>
-                            <li><a class="dropdown-item" href="#">모임 보기</a></li>
+                            <li><a class="dropdown-item" href="{% url 'party' %}">그룹 보기</a></li>
 
                             {% endif %}
                         </ul>

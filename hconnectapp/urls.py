@@ -25,4 +25,8 @@ urlpatterns = [
     path('contest/', contest, name="contest"),
     path('newcontest/', newcontest, name="newcontest"),
     path('createcontest/', createcontest, name="createcontest"),
+    path('party/', party, name="party"),
+    path('newparty/', newparty, name="newparty"),
+    path('createparty/', createparty, name="createparty"),
+    path('notice/', notice, name="notice"),
 ]
