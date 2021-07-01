@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block contents %}
+{% load static %}
+<head>
+    <style>
+        .container{
+            width:auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h3{
+            text-align: center;
+            margin-top:20px;
+        }
+ 
+    </style>
+</head>
+<h3>프로필 둘러보기</h3>
+        {% for userp in CustomUsers %}
+            <div class="container">
+                <a class="btn" data-bs-toggle="modal" href="#exampleModalToggle{{userp.username}}" role="button" style="display: flex;flex-direction: column; width:auto;">
+                    <div class="card " style="width: 18rem; display: flex; flex-direction: column; width:auto;">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                              <img src="{% static 'profile.png' %}" class="card-img-top" alt="..." style="width:70px">{{userp.nickname}}
+                            </h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">{{userp.body}}</li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                
+                    
+                </a>
+
+
+                <div class="modal fade" id="exampleModalToggle{{userp.username}}" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalToggleLabel{{userp.username}}">{{userp.nickname}}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            아이디 : 
+
+                            {{userp.username}}
+                            <br>
+                            이메일 :
+                
+                            {{userp.email}}
+                            <br>
+                            자기소개 :
+                    
+                            {{userp.body}}
+                            <br>
+                            취미 : 
+                            
+                            {% for hobby in Hobbys %}
+                                {{hobby.hobby}}
+                            {% endfor %}
+                        </div>
+                        <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close" >닫기</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+{% endblock %} 

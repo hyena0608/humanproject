@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block contents %}
+{% load static %}
+    <head>
+        <style>
+            .container{
+                border-radius: 4px;
+                width:100%;
+                display: block;
+            }
+            .box{
+                margin: 5px 5px;
+                padding-bottom:10px;
+            } 
+            h3{
+                text-align: center;
+                margin-top:20px;
+            }
+      
+        </style>
+    </head>
+    <h3>행사 둘러보기</h3>
+    <h3><button type="button" class="btn btn-outline-primary"><a href="{% url 'newcontest' %}" style="color: rgb(44, 44, 240)"> 글작성하기</a></button></h3>
+    <br>
+    <br>
+        {% for c in Contests %}
+        <div class="container">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h5 class="card-title">{{c.title}}</h5>
+                </div>
+                <div class="card-body">
+                    <img src="{{c.image.url}}" alt="" width="70%">
+                    <p class="card-text">{{c.contents}}</p>
+                    <h3><button type="button" class="btn btn-outline-primary">사이트 바로가기</button></h3>
+                </div>
+                <div class="card-footer text-muted">
+                {{c.pub_date}}
+                </div>
+            </div>
+        </div>
+                {% endfor %}
+{% endblock %} 

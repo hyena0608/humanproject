@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block contents %}
+{% load static %}
+<head>
+    <style>
+        .f input, .f textarea{
+            width : 20em;
+            margin: 3px 10px;
+            display: block;
+        }
+        h1{
+            margin: 20px;
+        }
+        button{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+    <h1>새로운 공모전</h1>
+
+
+    <form action="{% url 'createcontest' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-floating mb-3 f">
+            <input type="text" class="form-control" id="floatingInput" name="title" placeholder="name@example.com">
+            <label for="floatingInput" style="margin-right: auto; margin-left: auto;">&nbsp&nbsp&nbsp공모전 제목을 작성해주세요.</label>
+        </div>
+        <div class="form-floating f">
+            <textarea class="form-control" placeholder="Leave a comment here" rows="30" name="contexts" id="floatingTextarea2" style="height: 20em; width:90%"></textarea>
+            <label for="floatingTextarea2">&nbsp&nbsp&nbsp공모전 내용을 작성해주세요</label>
+        </div>
+    
+            <input type="file" name="image" id="image"></p>
+            <button type="submit">입력완료</button>
+    </form>
+{% endblock %}
