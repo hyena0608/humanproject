@@ -25,9 +25,9 @@
         </div>
     </div>
     <div class="container"> 
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width:95%">
+        <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width:95%">
             <div class="carousel" style="width:100%">
-                <div class="carousel-item active" style="width:100%">
+                <div class="carousel-item active" style="width:100%"> -->
                     <div class="box2">
                         <div class="title">
                             <a href="{% url 'contest' %}" style="font-size:0.8em">많은 행사를 찾아보세요</a>
@@ -36,7 +36,7 @@
                             모임, 행사, 단체를 이어주는 휴먼커넥트
                         </div>
                     </div>
-                </div>
+                <!-- </div>
                 {% for c in Contests%}
                 <div class="carousel-item" style="width:100%">
                     <div class="box2">
@@ -58,14 +58,14 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
-        </div>
+        </div> -->
     </div>
     <div class="container"></div>
-    <div id="carouselExampleControls2" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
+    <!-- <div id="carouselExampleControls2" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner"> -->
 
 
-          <div class="carousel-item active">
+          <!-- <div class="carousel-item active"> -->
             <div class="box3">
                 <div class="card">
                     <img src="{% static 'group.jpg' %}" class="card-img-top" alt="...">
@@ -76,9 +76,9 @@
                         </div>
                 </div>
             </div>
-          </div>
+          <!-- </div> -->
 
-          {% for p in Parties %}
+          <!-- {% for p in Parties %}
           <div class="carousel-item">
             <div class="box3">
                 <div class="card">
@@ -101,9 +101,9 @@
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
-        </button>
+        </button> -->
       </div>
-</div>
+<!-- </div> -->
 <div class="page-footer">
 </div>
 {% endblock %}

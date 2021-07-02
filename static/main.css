@@ -5,8 +5,9 @@ html, body {
     background-color: snow;
   }
 .page-hdr {
-    display: flex;
-    flex-direction: row;
+    position: fixed;
+    display: block;
+    top: 20px;
     line-height: 50px;
     font-family:"나눔고딕";
     font-size: 1em;
@@ -123,19 +124,19 @@ a:visited {
 table{
     width:100%;
 }
+.menu {
+    position: absolute;
+    top: 0;
+    right:0;
+    max-width: 0;
+    transition: 0.5s ease;
+    z-index: 1;
+    }
 
+    .menu-check {
+    display: none;
+    }
 
-        input{
-            width:95%;
-            height:3em;
-            margin-left:10px;
-            margin-right:10px;
-        }
-        table{
-            text-align: center;
-            margin-left: auto; 
-            margin-right: auto; 
-            margin-top: 20px; 
-            width:20em; 
-            height: 12em;
-        }
+    .menu-check:checked~.menu {
+    max-width: 200px;
+    }
